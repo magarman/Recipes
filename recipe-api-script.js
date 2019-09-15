@@ -1,12 +1,4 @@
 var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
-    //quanity on recipes pulled
-
-    //ingredints (chicken) 
-    var ingredients = ["chicken", "beef", "vegan"];
-    //calories
-    var calories = [600, 800, 1000];
-    //allergies (health)
-    var allergies = ["crustacean-free", "dairy-free	", "gluten-free", "peanut-free"];
 
 //___________________function to call based on user input_________________//
 //ingredients selected based off user selection 
