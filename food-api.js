@@ -1,12 +1,9 @@
 var apiKey = "a06d1bc5f6a52079c420fdbf5cc6d9dc";
     //quanity on recipes pulled
 
-    //ingredints (chicken) 
-    var ingredients = ["chicken", "beef", "vegan"];
-    //calories
-    var calories = [600, 800, 1000];
-    //allergies (health)
-    var allergies = ["crustacean-free", "dairy-free	", "gluten-free", "peanut-free"];
+ 
+    $(".-title").click(function () {
+     var recipeLabel  = $(".recipe-title").val();
 
 //___________________function to call based on user input_________________//
 //ingredients selected based off user selection 
@@ -21,7 +18,7 @@ var apiKey = "a06d1bc5f6a52079c420fdbf5cc6d9dc";
         console.log(selectedAllergy);
    
 
-    var queryURL = "https://api.edamam.com/api/food-database/parser?&app_id=85e120b2&app_key=a06d1bc5f6a52079c420fdbf5cc6d9dc&callback=?&ingr=" + selectedIngredient;
+    var queryURL = "https://api.edamam.com/api/food-database/parser?&app_id=85e120b2&app_key=a06d1bc5f6a52079c420fdbf5cc6d9dc&callback=?&label=" + "&ingr=" + selectedIngredient;
 
     //var queryURL = "https://api.edamam.com/api/food-database/parser&ingr=" + selectedIngredient + "&app_id=$95575680&app_key=$a06d1bc5f6a52079c420fdbf5cc6d9dc&from=0&to=10&calories=" + selectedCalorie + "&healthLabels=" + selectedAllergy;
    /// var queryURL ="https://api.edamam.com/api/food-database/parser?&app_id=85e120b2&app_key=a06d1bc5f6a52079c420fdbf5cc6d9dc&ingr=" + selectedIngredient;
@@ -51,8 +48,8 @@ var apiKey = "a06d1bc5f6a52079c420fdbf5cc6d9dc";
                     var urlOutputResults = outputResults.measures.uri;
             }
       });
+    });
     
-
     });
 
 
