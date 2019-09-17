@@ -39,6 +39,9 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
                     var ingredientLinesResults = outputResults.recipe.ingredientLines;
                     //output for URL
                     var urlOutputResults = outputResults.recipe.url;
+                    //IMG output
+                    var imgDisplayResults = outputResults.recipe.image;
+                    console.log(imgDisplayResults);
                     // console.log(typeof(ingredientLinesResults));
                     // var convertedToString = JSON.stringify(ingredientLinesResults);
                     //console.log(typeof(convertedToString + " string?"));
@@ -47,18 +50,25 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
                     recipeTitle.addClass("recipe-title");
                     $("#workplease").append(recipeTitle);
 
-                    //**----------------------Displays URL LINK FOR RECIPE WEBSITE-------------------------------------------- */
+                    //**----------------------Displays URL LINK FOR RECIPE WEBSITE---------------------------------------- */
                     //creates ahref from api url
-                    var urlLink = $("<a href>").text(urlOutputResults);
+                    var urlLink = $("<a>").text(urlOutputResults);
                     //adding the class for styling
                     urlLink.addClass("url-link");
                     //added link source so it goes to something
-                    urlLink.attr("src", urlOutputResults);
+                    urlLink.attr("href", urlOutputResults); ///FIX BUG!!!
                     //added target blank so user wouldn't be leaving website
                     urlLink.attr("target", "_blank");
                     //pushes newly created a href and api info to div
                     $("#workplease").append(urlLink);
-                    //**---------------LOOPS THROUGH RECIPE INGRDIENT LINES SO THEY ARE PRINTED OUT AS A LIST----------------------------------------- */
+
+                    ///*------------IMG DISPLAY------------------------------------------------------------------------*/
+                    var imgDisplay = $("<img>");
+                    imgDisplay.addClass("img-display");
+                    imgDisplay.attr("src", imgDisplayResults);
+                    $("#workplease").append(imgDisplay);
+
+                    //**---------------LOOPS THROUGH RECIPE INGRDIENT LINES SO THEY ARE PRINTED OUT AS A LIST-------------- */
                     for (j = 0; j < ingredientLinesResults.length; j++) {
                                 console.log(ingredientLinesResults[j]);
                                 var indgredientListedOutput = ingredientLinesResults[j];
