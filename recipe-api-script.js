@@ -48,7 +48,14 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
                     //**-----------------PRINTS OUT TITLE OF RECIPE----------------------------------------------- */
                     var recipeTitle = $("<h4>").text(titleOutput);
                     recipeTitle.addClass("recipe-title");
+                    recipeTitle.attr("value", titleOutput);
                     $("#workplease").append(recipeTitle);
+
+                    //--------Calorie button------///
+                    var calorieButton = $("<button>");
+                    calorieButton.addClass("calorie-button");
+                    calorieButton.text("Calories Per Serving");
+                    $("#workplease").append(calorieButton); 
 
                     //**----------------------Displays URL LINK FOR RECIPE WEBSITE---------------------------------------- */
                     //creates ahref from api url
