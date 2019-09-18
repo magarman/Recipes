@@ -75,6 +75,8 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
                     imgDisplay.attr("src", imgDisplayResults);
                     $("#workplease").append(imgDisplay);
 
+                    ///Function to call calorie API
+                    addHandler();
                     //**---------------LOOPS THROUGH RECIPE INGRDIENT LINES SO THEY ARE PRINTED OUT AS A LIST-------------- */
                     for (j = 0; j < ingredientLinesResults.length; j++) {
                                 console.log(ingredientLinesResults[j]);
