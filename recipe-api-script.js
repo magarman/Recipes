@@ -25,6 +25,10 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
             var responseHits = response.hits;
          //*---------------------LOOPS THROUGH RECPIE HITS AND OUTPUTS THE INGREDIENT LINES-----------------*/   
             for (i = 0; i < responseHits.length; i++) {
+                //making card for recipe
+                var card = $('<div>');
+              
+card.addClass('recipeCard');
                 //Contains output results from API with recipe hits that match query.
                     var outputResults = responseHits[i];
                     //following is a test for if outputResults is pulling info and what info it is pulling
@@ -46,18 +50,60 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
                     // var convertedToString = JSON.stringify(ingredientLinesResults);
                     //console.log(typeof(convertedToString + " string?"));
                     //**-----------------PRINTS OUT TITLE OF RECIPE----------------------------------------------- */
+                    var row1 = $('<div>');
+                    row1.addClass("row");
+                    
+                    var titleColumn = $('<div>');
+                    titleColumn.addClass("col-12");
+                    
                     var recipeTitle = $("<h4>").text(titleOutput);
                     recipeTitle.addClass("recipe-title");
-                    recipeTitle.attr("value", titleOutput);
-                    $("#workplease").append(recipeTitle);
-
-                    //--------Calorie button------///
+                    titleColumn.append(recipeTitle);
+                    row1.append(titleColumn);
+                    card.append(row1);
                     var calorieButton = $("<button>");
                     calorieButton.addClass("calorie-button");
                     calorieButton.text("Calories Per Serving");
                     $("#workplease").append(calorieButton); 
+                    ///*------------IMG DISPLAY------------------------------------------------------------------------*/
+                    var row2 = $('<div>');
+                    row2.addClass("row");
 
-                    //**----------------------Displays URL LINK FOR RECIPE WEBSITE---------------------------------------- */
+                    var imageRow = $('<div>');
+                    imageRow.addClass("col-6")
+
+                    var imgDisplay = $("<img>");
+                    imgDisplay.addClass("img-display");
+                    imgDisplay.attr("src", imgDisplayResults);
+                    imageRow.append(imgDisplay);
+                    row2.append(imageRow);
+                    card.append(row2);
+                    addHandler();
+                   
+
+
+                    //**---------------LOOPS THROUGH RECIPE INGRDIENT LINES SO THEY ARE PRINTED OUT AS A LIST-------------- */
+                    var row2 = $('<div>');
+
+                    var recipeRow = $('<div>');
+                    recipeRow.addClass("col-6");
+
+                    var recipeDiv = $("<ul>");
+                    recipeDiv.addClass("ingredient d-inline-block");
+                    for (j = 0; j < ingredientLinesResults.length; j++) {
+                        console.log(ingredientLinesResults[j]);
+                        var indgredientListedOutput = ingredientLinesResults[j];
+                        //creating listed item tags for info display
+                        var recipeDisplay = $("<li>").text(indgredientListedOutput);
+                        //appends recipes info to created div
+                       
+                        recipeDiv.append(recipeDisplay);
+                       recipeRow.append(recipeDiv);
+                        row2.append(recipeRow);
+                       card.append(row2);
+
+                }
+                //**----------------------Displays URL LINK FOR RECIPE WEBSITE---------------------------------------- */
                     //creates ahref from api url
                     var urlLink = $("<a>").text(urlOutputResults);
                     //adding the class for styling
@@ -67,35 +113,9 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
                     //added target blank so user wouldn't be leaving website
                     urlLink.attr("target", "_blank");
                     //pushes newly created a href and api info to div
-                    $("#workplease").append(urlLink);
-
-                    ///*------------IMG DISPLAY------------------------------------------------------------------------*/
-                    var imgDisplay = $("<img>");
-                    imgDisplay.addClass("img-display");
-                    imgDisplay.attr("src", imgDisplayResults);
-                    $("#workplease").append(imgDisplay);
-
-                    ///Function to call calorie API
-                    addHandler();
-                    //**---------------LOOPS THROUGH RECIPE INGRDIENT LINES SO THEY ARE PRINTED OUT AS A LIST-------------- */
-                    for (j = 0; j < ingredientLinesResults.length; j++) {
-                                console.log(ingredientLinesResults[j]);
-                                var indgredientListedOutput = ingredientLinesResults[j];
-                   
-
-                    //creates DIV where output of results will go
-                     var recipeDiv = $("<div>");
-                    //adding class for styling recipe paragraphs
-                     recipeDiv.addClass("recipe-output");
-                     //heading
-                     
-                     //creating listed item tags for info display
-                     var recipeDisplay = $("<li>").text(indgredientListedOutput);
-                    //appends recipes info to created div
-                     recipeDiv.append(recipeDisplay);
-                    $("#workplease").append(recipeDiv);
+                    card.append(urlLink); 
+                    $("#workplease").append(card);
                 }
-            }
             
 
 
