@@ -23,17 +23,12 @@ var apiKey = "6d596b3dd3e66406691dc2abbdf63d6b";
         console.log(response.hits);
         //puts response hits into variable so hits can be interated through
             var responseHits = response.hits;
-
-
-
-
          //*---------------------LOOPS THROUGH RECPIE HITS AND OUTPUTS THE INGREDIENT LINES-----------------*/   
             for (i = 0; i < responseHits.length; i++) {
                 //making card for recipe
                 var card = $('<div>');
               
 card.addClass('recipeCard');
-                
                 //Contains output results from API with recipe hits that match query.
                     var outputResults = responseHits[i];
                     //following is a test for if outputResults is pulling info and what info it is pulling
@@ -66,14 +61,10 @@ card.addClass('recipeCard');
                     titleColumn.append(recipeTitle);
                     row1.append(titleColumn);
                     card.append(row1);
-
                     var calorieButton = $("<button>");
                     calorieButton.addClass("calorie-button");
                     calorieButton.text("Calories Per Serving");
                     $("#workplease").append(calorieButton); 
-                   
-
-
                     ///*------------IMG DISPLAY------------------------------------------------------------------------*/
                     var row2 = $('<div>');
                     row2.addClass("row");
@@ -124,11 +115,7 @@ card.addClass('recipeCard');
                     //pushes newly created a href and api info to div
                     card.append(urlLink); 
                     $("#workplease").append(card);
-                    
-                   
                 }
-
-
             
 
 

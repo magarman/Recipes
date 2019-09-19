@@ -5,6 +5,7 @@
      var recipeLabel  = $(".recipe-title").val();
      //console.log(recipeLabel + "khalidtest");
 
+
 //___________________function to call based on user input_________________//
 //ingredients selected based off user selection 
      {
@@ -64,7 +65,6 @@
                     $(".fat-display").append(fatOutput);
                     $("#workplease").append(fatResult);
                     //console.log(Math.floor(fatOutput));
-
                     console.log(outputResults.food.nutrients.CHOCDF);
                    var carbOutput = parseFloat(outputResults.food.nutrients.CHOCDF);
                    var carbResult = $("<p>").text("Carbs - " + carbOutput);
@@ -88,4 +88,3 @@
      }
     });
     }
-
