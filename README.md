@@ -13,4 +13,6 @@ This is an app that will provide recipes after option boxes have been selected a
 
 **2 APIs used**
 1: Recipe API from recipe: https://developer.edamam.com/edamam-docs-recipe-api
-2L Nutrients API from Food API: https://developer.edamam.com/food-database-api-docs
+2: Nutrients API from Food API: https://developer.edamam.com/food-database-api-docs
+
+Link to live Gitpage: https://magarman.github.io/Recipes/
