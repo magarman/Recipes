@@ -70,7 +70,7 @@ card.addClass('recipeCard');
                     var calorieButton = $("<button>");
                     calorieButton.addClass("calorie-button");
                     calorieButton.text("Calories Per Serving");
-                    $(".recipeCard").append(calorieButton); 
+                    $("#workplease").append(calorieButton); 
                    
 
 
